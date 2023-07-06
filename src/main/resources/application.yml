@@ -1,0 +1,15 @@
+spring:
+  data:
+    mongodb:
+      uuid-representation: standard
+      uri: mongodb://local:local@localhost:27017/employee-service
+  kafka:
+    producer.:
+      bootstrap-servers: localhost:29092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    topic: employee-log
+  security:
+    user:
+      name: testUser
+      password: test123

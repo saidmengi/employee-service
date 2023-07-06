@@ -9,7 +9,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
       MONGO_INITDB_DATABASE: employee-service
     volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+      - ./docker-compose/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
       - mongodb_data:/data/db
     ports:
       - 27017:27017
@@ -34,18 +34,6 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-  app:
-    build:
-      context: .
-      dockerfile: ../Dockerfile
-    depends_on:
-      - mongo
-      - kafka
-    ports:
-      - 8080:8080
-    volumes:
-      - ./app:/app
 
 volumes:
   mongodb_data:

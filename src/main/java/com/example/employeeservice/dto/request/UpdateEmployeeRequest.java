@@ -1,17 +1,20 @@
-package com.example.employeeservice.dto;
+package com.example.employeeservice.dto.request;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeDTO {
+@Builder
+public class UpdateEmployeeRequest {
     private String email;
     private String fullName;
-    private String birthday;
+    private LocalDate birthday;
     private List<String> hobbies;
 }
